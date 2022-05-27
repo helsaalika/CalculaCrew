@@ -110,11 +110,11 @@ int menuTemperatureConversion(){
 	printf("                                      5. Celcius to Kelvin\n");
 	printf("                                      6. Kelvin to Celcius\n");
 	printf("                                      7. Fahrenheit to Reamur\n");
-	printf("                                      9. Reamur to Fahrenheit\n");
-	printf("                                     10. Fahrenheit to Kelvin\n");
-	printf("                                     11. Kelvin to Fahrenheit\n");
-	printf("                                     12. Reamur to Kelvin\n");
-	printf("                                     13. Kelvin to Reamur\n");
+	printf("                                      8. Reamur to Fahrenheit\n");
+	printf("                                      9. Fahrenheit to Kelvin\n");
+	printf("                                     10. Kelvin to Fahrenheit\n");
+	printf("                                     11. Reamur to Kelvin\n");
+	printf("                                     12. Kelvin to Reamur\n");
 	printf("\n");
 	gotoxy(39,18);printf("type your choice ..");
 	gotoxy(43,19);printf("  ----- ");
