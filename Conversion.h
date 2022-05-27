@@ -40,4 +40,44 @@ double hexaToDecimal();
 /* Convert Hexadecimal to Octal */
 Stack hexaToOctal();
 
+//============================
+//		  TEMPERATURE
+//============================
+
+/* Convert Celsius to Fahrenheit */
+double celsiusToFahrenheit(double temp);
+
+/* Convert Celsius to Reamur */
+double celsiusToReamur(double temp);
+
+/* Convert Celsius to Kelvin */
+double celsiusToKelvin(double temp);
+
+/* Convert Fahrenheit to Celsius */
+double fahrenheitToCelsius(double temp);
+
+/* Convert Fahrenheit to Reamur */
+double fahrenheitToReamur(double temp);
+
+/* Convert Fahrenheit to Kelvin */
+double fahrenheitToKelvin(double temp);
+
+/* Convert Reamur to Celsius */
+double reamurToCelsius(double temp);
+
+/* Convert Reamur to Fahrenheit */
+double reamurToFahrenheit(double temp);
+
+/* Convert Reamur to Kelvin */
+double reamurToKelvin(double temp);
+
+/* Convert Kelvin to Celsius */
+double kelvinToCelsius(double temp);
+
+/* Convert Kelvin to Fahrenheit */
+double kelvinToFahrenheit(double temp);
+
+/* Convert Kelvin to Reamur */
+double kelvinToReamur(double temp);
+
 #endif

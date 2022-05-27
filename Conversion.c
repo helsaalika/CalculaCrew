@@ -278,3 +278,118 @@ Stack hexaToOctal(){
 	return result;
 }
 
+//============================
+//		  TEMPERATURE
+//============================
+
+/** Convert Celsius to Fahrenheit **/
+double celsiusToFahrenheit(double temp){
+	double result;
+	
+	result = (9 * temp) / 5 + 32;
+	
+	return result;
+}
+
+/** Convert Celsius to Reamur **/
+double celsiusToReamur(double temp){
+	double result;
+	
+	result = (4 * temp)/5;
+	
+	return result;
+}
+
+/** Convert Celsius to Kelvin **/
+double celsiusToKelvin(double temp){
+	double result;
+	
+	result = temp + 273;
+	
+	return result;
+}
+
+/** Convert Fahrenheit to Celsius **/
+double fahrenheitToCelsius(double temp){
+	double result;
+	
+	result = 5 * (temp - 32)/9;
+	
+	return result;
+}
+
+/** Convert Fahrenheit to Reamur **/
+double fahrenheitToReamur(double temp){
+	double result;
+	
+	result = 4 * (temp - 32)/9;
+	
+	return result;
+}
+
+/** Convert Fahrenheit to Kelvin **/
+double fahrenheitToKelvin(double temp){
+	double result;
+	
+	result = fahrenheitToCelsius(temp);
+	result = celsiusToKelvin(result);
+	
+	return result;
+}
+
+/** Convert Reamur to Celsius **/
+double reamurToCelsius(double temp){
+	double result;
+	
+	result = (5 * temp)/4;
+	
+	return result;
+}
+
+/** Convert Reamur to Fahrenheit **/
+double reamurToFahrenheit(double temp){
+	double result;
+	
+	result = (9 * temp)/4 + 32;
+	
+	return result;
+}
+
+/** Convert Reamur to Kelvin **/
+double reamurToKelvin(double temp){
+	double result;
+	
+	result = reamurToCelsius(temp);
+	result = celsiusToKelvin(result);
+	
+	return result;
+}
+
+/** Convert Kelvin to Celsius **/
+double kelvinToCelsius(double temp){
+	double result;
+	
+	result = temp - 273;
+	
+	return result;
+}
+
+/** Convert Kelvin to Fahrenheit **/
+double kelvinToFahrenheit(double temp){
+	double result;
+	
+	result = kelvinToCelsius(temp);
+	result = celsiusToFahrenheit(result);
+	
+	return result;
+}
+
+/** Convert Kelvin to Reamur **/
+double kelvinToReamur(double temp){
+	double result;
+	
+	result = kelvinToCelsius(temp);
+	result = celsiusToReamur(result);
+	
+	return result;
+}
