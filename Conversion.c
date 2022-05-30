@@ -3,6 +3,64 @@
 #include "Common.h"
 #include <math.h>
 
+/* Convert Fractions to Decimal */
+Stack fractionsToDecimal(){
+	//kamus data
+	
+	//algoritma
+	
+}
+
+/* Convert Decimal to Fractions */
+Stack decimalToFractions(){
+	//kamus data
+	
+	//algoritma	
+}
+
+/* Convert Fractions to Percent */
+Stack fractionsToPercent(){
+	//kamus data
+	
+	//algoritma	
+}
+
+/* Convert Percent to Fractions */
+Stack percentToFractions(){
+	//kamus data
+	
+	//algoritma	
+}
+
+/* Convert Decimal to Percent */
+Stack decimalToPercent(double decimal){
+	// Kamus Data
+	Stack *S;
+	Data result, result2;
+	
+	//Inisialisasi Variabel
+	S = make_stack();
+	
+	//Algoritma
+	result.num = decimal * 100;
+	push(S, result, FALSE);
+	result2.opr = '%';
+	push(S, result2, TRUE);
+	
+	//print_stack_node((*result).topNode);
+	return *S;	
+}
+
+/* Convert Percen to Decimal */
+double percentToDecimal(double percentage){
+	//kamus data
+	double result;
+	
+	//algoritma	
+	result = percentage / 100;
+	return result;
+}
+
 /* Convert Char to Integer */
 int charToInt(char c){
 	int num = 0;

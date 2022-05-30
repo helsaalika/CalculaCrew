@@ -230,10 +230,10 @@ int menuNumberConversion(){
 	printf("               --------------------------------------------------------------------\n");
 	printf("\n");
 	printf("                                   Choose What You Want to Convert\n");
-	printf("                                      1. Fractions to Decimal \n");
-	printf("                                      2. Decimal to Fractions\n");
-	printf("                                      3. Fractions to Percent\n");
-	printf("                                      4. Percent to Fractions\n");
+	printf("                                      1. Fractions to Decimal (program belum berjalan) \n");
+	printf("                                      2. Decimal to Fractions (program belum berjalan)\n");
+	printf("                                      3. Fractions to Percent (program belum berjalan)\n");
+	printf("                                      4. Percent to Fractions (program belum berjalan)\n");
 	printf("                                      5. Decimal to Percent\n");
 	printf("                                      6. Percent to Decimal\n");
 	printf("                                      7. Binary to Decimal\n");
@@ -320,19 +320,32 @@ void numberConversion(boolean *isQuit){
 	printf("                        |   ---------------------------------------------   |\n");
 	printf("                        |                                                   |\n");
 	printf("                        +===================================================+\n");
+	gotoxy(29,9);scanf("%lf", &user_input);
 	switch(menu_number){
 		case 1 : 
-			printf("                                         Fractions to Decimal\n"); break;
+			gotoxy(29,9);S = fractionsToDecimal(); 
+			gotoxy(29,14); print_stack_node((S).topNode);
+			break;
 		case 2 :
-			printf("                                         Decimal to Fractions\n"); break;
+			gotoxy(29,9);S = decimalToFractions(); 
+			gotoxy(29,14); print_stack_node((S).topNode);
+			break;
 		case 3 :
-			printf("                                         Fractions to Percent\n"); break;
+			gotoxy(29,9);S = fractionsToPercent(); 
+			gotoxy(29,14); print_stack_node((S).topNode); 
+			break;
 		case 4 :
-			printf("                                         Percent to Fractions\n"); break;
+			gotoxy(29,9);S = percentToFractions(); 
+			gotoxy(29,14); print_stack_node((S).topNode);
+			break;
 		case 5 :
-			printf("                                         Decimal to Percent\n"); break;
+			gotoxy(29,9);S = decimalToPercent(user_input); 
+			gotoxy(29,14); print_stack_node((S).topNode);  
+			break;
 		case 6 :
-			printf("                                         Percent to Decimal\n"); break;
+			gotoxy(29,9);result = percentToDecimal(user_input); 
+			gotoxy(29,14);printf("%lf", result); 
+			break;
 		case 7 :
 			gotoxy(29,9);result = binerToDecimal(); 
 			gotoxy(29,14);printf("%lf", result); 

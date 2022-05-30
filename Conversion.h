@@ -2,6 +2,24 @@
 #define CONVERSION_H_INCLUDED
 #include "Common.h"
 
+/* Convert Fractions to Decimal */
+Stack fractionsToDecimal();
+
+/* Convert Decimal to Fractions */
+Stack decimalToFractions();
+
+/* Convert Fractions to Percent */
+Stack fractionsToPercent(); 
+
+/* Convert Percent to Fractions */
+Stack percentToFractions();
+
+/* Convert Decimal to Percent */ 
+Stack decimalToPercent(); 
+
+/* Convert Percen to Decimal */
+double percentToDecimal();
+
 /* Convert Char to Integer */
 int charToInt(char c);
 
