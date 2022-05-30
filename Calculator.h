@@ -43,4 +43,13 @@ int squareRoot(int base, int exp);
 
 double calculate(TreeNode *current);
 
+// ===================
+//       HISTORY
+// ===================
+/* add new data line to file history.txt */
+void addHistory(char* data);
+
+/* read file history.txt and print data on console */
+void printHistory();
+
 #endif // CALCULATOR_H_INCLUDED
