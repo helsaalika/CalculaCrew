@@ -228,3 +228,40 @@ double calculate(TreeNode *current){
 	
 	return result;
 }
+
+// ===================
+//       HISTORY
+// ===================
+/* add new data line to file history.txt */
+void addHistory(char* data){
+	char *filename = "history.txt";
+	
+	FILE *fp = fopen(filename,"a");
+	if(fp == NULL){
+		printf("Error opening file %s",filename);
+		return;
+	}
+	
+	fprintf(fp, "%s\n", data);
+	
+	fclose(fp);
+}
+
+/* read file history.txt and print data on console */
+void printHistory(){
+	char *filename = "history.txt";
+	
+	FILE *fp = fopen(filename,"r");
+	char data;
+	
+	if(fp == NULL){
+		printf("Error opening file %s",filename);
+		exit(1);
+	}
+	 
+	while((data=getc(fp))!=EOF){
+		putch(data);
+	}
+	
+	fclose(fp);
+}
