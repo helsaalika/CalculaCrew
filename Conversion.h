@@ -1,5 +1,6 @@
 #ifndef CONVERSION_H_INCLUDED
 #define CONVERSION_H_INCLUDED
+#include "Common.h"
 
 /* Convert Char to Integer */
 int charToInt(char c);

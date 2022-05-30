@@ -1,4 +1,6 @@
 #include "Stack.h"
+#include "Conversion.h"
+#include "Common.h"
 #include <math.h>
 
 /* Convert Char to Integer */
@@ -16,7 +18,7 @@ double binerToDecimal(){
 	
 	// Kamus Data
 	double result, decimal;
-	char tokenBiner;
+	char tokenBiner, space;
 	Data biner; 
 	int i;
 	Stack *s;
@@ -25,6 +27,7 @@ double binerToDecimal(){
 	s = make_stack();
 	result = 0;
 	i = 0;
+	space = getchar();
 	tokenBiner = getchar();
 	
 	// Input to stack
@@ -153,7 +156,7 @@ double octalToDecimal(){
 	
 	// Kamus Data
 	double result, decimal;
-	char tokenOctal;
+	char tokenOctal, space;
 	Data octal; 
 	int i;
 	Stack *s;
@@ -162,6 +165,7 @@ double octalToDecimal(){
 	s = make_stack();
 	result = 0;
 	i = 0;
+	space = getchar();
 	tokenOctal = getchar();
 	
 	// Input to stack
@@ -211,7 +215,7 @@ double hexaToDecimal(){
 	
 	// Kamus Data
 	double result, decimal;
-	char tokenHexa;
+	char tokenHexa, space;
 	Data hexa; 
 	int i;
 	Stack *s;
@@ -220,6 +224,7 @@ double hexaToDecimal(){
 	s = make_stack();
 	result = 0;
 	i = 0;
+	space = getchar();
 	tokenHexa = getchar();
 	
 	// Input to stack
