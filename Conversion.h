@@ -1,24 +1,30 @@
 #ifndef CONVERSION_H_INCLUDED
 #define CONVERSION_H_INCLUDED
 #include "Common.h"
+#include "boolean.h"
+#include <stdbool.h>
+
+/* Check fractions is simplest*/
+bool isSimplest(int numerator, int denominator);
+void simplify(int numerator, int denominator);
 
 /* Convert Fractions to Decimal */
-Stack fractionsToDecimal();
+double fractionsToDecimal();
 
 /* Convert Decimal to Fractions */
-Stack decimalToFractions();
+Stack decimalToFractions(double decimal);
 
 /* Convert Fractions to Percent */
 Stack fractionsToPercent(); 
 
 /* Convert Percent to Fractions */
-Stack percentToFractions();
+Stack percentToFractions(double percentage);
 
 /* Convert Decimal to Percent */ 
-Stack decimalToPercent(); 
+Stack decimalToPercent(double percent); 
 
 /* Convert Percen to Decimal */
-double percentToDecimal();
+double percentToDecimal(double percentage);
 
 /* Convert Char to Integer */
 int charToInt(char c);

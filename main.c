@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include "Calculator.h"
 #include "Conversion.h"
+#include "Stack.h"
 #include <windows.h>
 #include <stdlib.h>
 
@@ -320,14 +321,27 @@ void numberConversion(boolean *isQuit){
 	printf("                        |   ---------------------------------------------   |\n");
 	printf("                        |                                                   |\n");
 	printf("                        +===================================================+\n");
-	gotoxy(29,9);scanf("%lf", &user_input);
+	
 	switch(menu_number){
 		case 1 : 
-			gotoxy(29,9);S = fractionsToDecimal(); 
-			gotoxy(29,14); print_stack_node((S).topNode);
+			gotoxy(29,9);
+			double decimal;
+			char space = getchar(), ambil = getchar();
+			Data token;
+			Stack *st;
+			st = make_stack(); 
+			while(ambil != '\n'){
+				token.opr = ambil;
+				push(st, token, true);
+				ambil = getchar();
+			}
+			
+			decimal = fractionsToDecimal(st); 
+			gotoxy(29,14); printf("%f", decimal);
 			break;
 		case 2 :
-			gotoxy(29,9);S = decimalToFractions(); 
+			gotoxy(29,9);scanf("%lf", &user_input);
+			gotoxy(29,9);S = decimalToFractions(user_input); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 3 :
@@ -335,28 +349,32 @@ void numberConversion(boolean *isQuit){
 			gotoxy(29,14); print_stack_node((S).topNode); 
 			break;
 		case 4 :
-			gotoxy(29,9);S = percentToFractions(); 
+			gotoxy(29,9);scanf("%lf", &user_input);
+			gotoxy(29,9);S = percentToFractions(user_input); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 5 :
+			gotoxy(29,9);scanf("%lf", &user_input);
 			gotoxy(29,9);S = decimalToPercent(user_input); 
 			gotoxy(29,14); print_stack_node((S).topNode);  
 			break;
 		case 6 :
+			gotoxy(29,9);scanf("%lf", &user_input);
 			gotoxy(29,9);result = percentToDecimal(user_input); 
 			gotoxy(29,14);printf("%lf", result); 
 			break;
 		case 7 :
+			gotoxy(29,9);scanf("%lf", &user_input);
 			gotoxy(29,9);result = binerToDecimal(); 
 			gotoxy(29,14);printf("%lf", result); 
 			break;
 		case 8 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = binerToOctal(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 9 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = binerToHexa(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
@@ -376,30 +394,32 @@ void numberConversion(boolean *isQuit){
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 13 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = octalToBiner(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 14 :
+			gotoxy(29,9);scanf("%lf", &user_input);
 			gotoxy(29,9);result = octalToDecimal(); 
 			gotoxy(29,14);printf("%lf", result); 
 			break;
 		case 15 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = octalToHexa(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 16 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = hexaToBiner(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;
 		case 17 :
+			gotoxy(29,9);scanf("%lf", &user_input);
 			gotoxy(29,9);result = hexaToDecimal(); 
 			gotoxy(29,14);printf("%lf", result); 
 			break;
 		case 18 :
-			gotoxy(29,9);
+			gotoxy(29,9);scanf("%lf", &user_input);
 			S = hexaToOctal(); 
 			gotoxy(29,14); print_stack_node((S).topNode);
 			break;

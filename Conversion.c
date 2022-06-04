@@ -4,32 +4,125 @@
 #include <math.h>
 
 /* Convert Fractions to Decimal */
-Stack fractionsToDecimal(){
+double fractionsToDecimal(Stack fraction){
 	//kamus data
+	double result;
+	Data numerator, denominator;
+
+	addressStack node = fraction.topNode;
 	
 	//algoritma
+	while(!strcmp(node->data.opr,'/')){
+		numerator.opr = node -> data.opr;
+		node = node->pNode;
+	}
 	
+	while(!strcmp(node->data.opr,'\0')){
+		denominator.opr = node->data.opr;
+		node = node->pNode;
+	}
+	
+	numerator.num = charToInt(numerator.opr);
+	denominator.num = charToInt(denominator.opr);
+	result = numerator.num/denominator.num;
+	
+	//print
+	return result;
 }
 
 /* Convert Decimal to Fractions */
-Stack decimalToFractions(){
+Stack decimalToFractions(double decimal){
 	//kamus data
+	Stack *S;
+	Data result, result2, result3;
+	int numerator, denominator;
 	
-	//algoritma	
+	//Inisialisasi Variabel
+	S = make_stack();
+	
+	//algoritma
+	denominator = 10000;
+	
+	//convert double to int
+	numerator = (int)floor(decimal) * denominator + (int)(((decimal - floor(decimal))* denominator) + .5f);
+	
+	while(true){
+		if(numerator%10==0){
+			numerator=numerator/10;
+			denominator=denominator/10;
+		}else{
+			break;
+		}
+	}
+	
+	if(isSimplest(numerator,denominator == false)){
+		simplify(numerator,denominator);
+	}
+	
+	result3.num = denominator;
+	push(S,result3,false);
+	result2.opr = '/';
+	push(S, result2, true);
+	result.num = numerator;
+	push(S, result, false);
+	
+	//print_stack_node((*result).topNode);
+	return *S;
+}
+
+/* Check fractions is Simplest*/
+bool isSimplest(int numerator, int denominator){
+	int i,factor;
+	
+	for(i = 1; i<=numerator && i<= denominator; i++){
+		if(numerator % i == 0 && denominator % i == 0 ){
+			factor = factor + 1;
+		}
+	}
+	if(factor = 1){
+		return true;
+	} else{
+		return false;	
+	}
+}
+
+void simplify(int numerator, int denominator){
+	int i;
+	
+	for(i = 2; i<numerator && i<denominator; i++){
+		if(numerator % i == 0 && denominator % i == 0 ){
+			numerator = numerator/i;
+			denominator = denominator/i;
+		}
+	}
 }
 
 /* Convert Fractions to Percent */
 Stack fractionsToPercent(){
 	//kamus data
 	
-	//algoritma	
+	//algoritma
 }
 
 /* Convert Percent to Fractions */
-Stack percentToFractions(){
+Stack percentToFractions(double percentage){
 	//kamus data
+	Stack *S;
+	Data result, result2, result3;
 	
-	//algoritma	
+	//Inisialisasi Variabel
+	S = make_stack();
+	
+	//algoritma
+	result3.num = 100;
+	push(S, result3, FALSE);
+	result2.opr = '/';
+	push(S, result2, TRUE);
+	result.num = percentage;
+	push(S, result, FALSE);
+	
+	//print_stack_node((*result).topNode);
+	return *S;
 }
 
 /* Convert Decimal to Percent */
@@ -42,10 +135,11 @@ Stack decimalToPercent(double decimal){
 	S = make_stack();
 	
 	//Algoritma
-	result.num = decimal * 100;
-	push(S, result, FALSE);
 	result2.opr = '%';
 	push(S, result2, TRUE);
+	result.num = decimal * 100;
+	push(S, result, FALSE);
+
 	
 	//print_stack_node((*result).topNode);
 	return *S;	
