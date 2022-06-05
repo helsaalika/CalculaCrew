@@ -5,8 +5,8 @@
 #include <stdbool.h>
 
 /* Check fractions is simplest*/
-bool isSimplest(int numerator, int denominator);
-void simplify(int numerator, int denominator);
+int isSimplest(int numerator, int denominator);
+void simplify(int *numerator, int *denominator);
 
 /* Convert Fractions to Decimal */
 double fractionsToDecimal();

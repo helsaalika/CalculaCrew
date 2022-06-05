@@ -231,10 +231,10 @@ int menuNumberConversion(){
 	printf("               --------------------------------------------------------------------\n");
 	printf("\n");
 	printf("                                   Choose What You Want to Convert\n");
-	printf("                                      1. Fractions to Decimal (program belum berjalan) \n");
-	printf("                                      2. Decimal to Fractions (program belum berjalan)\n");
-	printf("                                      3. Fractions to Percent (program belum berjalan)\n");
-	printf("                                      4. Percent to Fractions (program belum berjalan)\n");
+	printf("                                      1. Fractions to Decimal\n");
+	printf("                                      2. Decimal to Fractions\n");
+	printf("                                      3. Fractions to Percent\n");
+	printf("                                      4. Percent to Fractions\n");
 	printf("                                      5. Decimal to Percent\n");
 	printf("                                      6. Percent to Decimal\n");
 	printf("                                      7. Binary to Decimal\n");
@@ -325,19 +325,8 @@ void numberConversion(boolean *isQuit){
 	switch(menu_number){
 		case 1 : 
 			gotoxy(29,9);
-			double decimal;
-			char space = getchar(), ambil = getchar();
-			Data token;
-			Stack *st;
-			st = make_stack(); 
-			while(ambil != '\n'){
-				token.opr = ambil;
-				push(st, token, true);
-				ambil = getchar();
-			}
-			
-			decimal = fractionsToDecimal(st); 
-			gotoxy(29,14); printf("%f", decimal);
+			double result = fractionsToDecimal();
+			gotoxy(29,14); printf("%g", result);
 			break;
 		case 2 :
 			gotoxy(29,9);scanf("%lf", &user_input);

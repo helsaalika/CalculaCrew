@@ -1,32 +1,13 @@
 #include "Stack.h"
 #include "Conversion.h"
+#include "Calculator.h"
 #include "Common.h"
 #include <math.h>
 
 /* Convert Fractions to Decimal */
-double fractionsToDecimal(Stack fraction){
-	//kamus data
-	double result;
-	Data numerator, denominator;
-
-	addressStack node = fraction.topNode;
+double fractionsToDecimal(){
 	
-	//algoritma
-	while(!strcmp(node->data.opr,'/')){
-		numerator.opr = node -> data.opr;
-		node = node->pNode;
-	}
-	
-	while(!strcmp(node->data.opr,'\0')){
-		denominator.opr = node->data.opr;
-		node = node->pNode;
-	}
-	
-	numerator.num = charToInt(numerator.opr);
-	denominator.num = charToInt(denominator.opr);
-	result = numerator.num/denominator.num;
-	
-	//print
+	double result = mainCalculator();
 	return result;
 }
 
@@ -55,8 +36,8 @@ Stack decimalToFractions(double decimal){
 		}
 	}
 	
-	if(isSimplest(numerator,denominator == false)){
-		simplify(numerator,denominator);
+	if(isSimplest(numerator,denominator) != 0){
+		simplify(&numerator,&denominator);
 	}
 	
 	result3.num = denominator;
@@ -71,28 +52,25 @@ Stack decimalToFractions(double decimal){
 }
 
 /* Check fractions is Simplest*/
-bool isSimplest(int numerator, int denominator){
-	int i,factor;
+int isSimplest(int numerator, int denominator){
+	int i,factor=0;
 	
 	for(i = 1; i<=numerator && i<= denominator; i++){
 		if(numerator % i == 0 && denominator % i == 0 ){
 			factor = factor + 1;
 		}
 	}
-	if(factor = 1){
-		return true;
-	} else{
-		return false;	
-	}
+	
+	return factor;
 }
 
-void simplify(int numerator, int denominator){
+void simplify(int *numerator, int *denominator){
 	int i;
 	
-	for(i = 2; i<numerator && i<denominator; i++){
-		if(numerator % i == 0 && denominator % i == 0 ){
-			numerator = numerator/i;
-			denominator = denominator/i;
+	for(i = 2; i<*numerator && i<*denominator; i++){
+		if(*numerator % i == 0 && *denominator % i == 0 ){
+			*numerator = *numerator/i;
+			*denominator = *denominator/i;
 		}
 	}
 }
@@ -100,8 +78,21 @@ void simplify(int numerator, int denominator){
 /* Convert Fractions to Percent */
 Stack fractionsToPercent(){
 	//kamus data
+	Stack *S;
+	Data result, result2;
+	
+	//Inisialisasi Variabel
+	S = make_stack();
 	
 	//algoritma
+	result.num = fractionsToDecimal() * 100;
+	result2.opr = '%';
+	
+	push(S, result2, true);
+	push(S, result, false);
+	
+	//print_stack_node((*result).topNode);
+	return *S;
 }
 
 /* Convert Percent to Fractions */
