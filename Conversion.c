@@ -67,7 +67,7 @@ int isSimplest(int numerator, int denominator){
 void simplify(int *numerator, int *denominator){
 	int i;
 	
-	for(i = 2; i<*numerator && i<*denominator; i++){
+	for(i = 2; i<=*numerator && i<=*denominator; i++){
 		if(*numerator % i == 0 && *denominator % i == 0 ){
 			*numerator = *numerator/i;
 			*denominator = *denominator/i;
